@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Home from "./routes/Home.tsx";
 import Favorite from "./routes/Favorite.tsx";
+import Series from "./routes/Series.tsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "favorite",
         element: <Favorite />
+      },
+      {
+        path: "series",
+        element: <Series />
       }
     ]
   }

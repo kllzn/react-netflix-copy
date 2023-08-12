@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { Movie } from "../typings";
 import { getFavoriteTVShows, getFavoritesMovies } from "../utils/api";
 import Row from "../components/HomePage/Row";
+import Wrapper from "../components/Wrapper";
 
 interface FavoriteProps {}
 
@@ -19,13 +20,15 @@ const Favorite: FC<FavoriteProps> = () => {
   };
 
   return (
-    <div className="space-y-8">
-      {Object.entries(rows).map(([title, item]) => {
-        return (
-          <Row movies={item} title={title} favorites={true} key={title}></Row>
-        );
-      })}
-    </div>
+    <Wrapper>
+      <div className="space-y-8">
+        {Object.entries(rows).map(([title, item]) => {
+          return (
+            <Row movies={item} title={title} favorites={true} key={title}></Row>
+          );
+        })}
+      </div>
+    </Wrapper>
   );
 };
 

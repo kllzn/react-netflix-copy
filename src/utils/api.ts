@@ -80,7 +80,7 @@ export const getMovies = async () => {
         })
       ),
     fetch(
-      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=35",
+      "https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=35",
       getOptions
     )
       .then((res) => res.json())
@@ -153,4 +153,81 @@ export const connectFavorites = async () => {
     getFavoriteTVShows().then((item) => item.map((item: Movie) => item.id))
   ]);
   return [...favoriteMovies, ...favoriteTVShows];
+};
+
+// SERIES
+
+export const getSeries = async () => {
+  const [comedies, dramas, animation, crime, family] = await Promise.all([
+    fetch(
+      "https://api.themoviedb.org/3/discover/tv?include_adult=true&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=35",
+      getOptions
+    )
+      .then((res) => res.json())
+      .then((res) =>
+        res.results.map((item: Movie) => {
+          const movie = Object.assign({}, item);
+          movie.media_type = "tv";
+          return movie;
+        })
+      ),
+    fetch(
+      "https://api.themoviedb.org/3/discover/tv?include_adult=true&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=18",
+      getOptions
+    )
+      .then((res) => res.json())
+      .then((res) =>
+        res.results.map((item: Movie) => {
+          const movie = Object.assign({}, item);
+          movie.media_type = "tv";
+          return movie;
+        })
+      ),
+    fetch(
+      "https://api.themoviedb.org/3/discover/tv?include_adult=true&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=16",
+      getOptions
+    )
+      .then((res) => res.json())
+      .then((res) =>
+        res.results.map((item: Movie) => {
+          const movie = Object.assign({}, item);
+          movie.media_type = "tv";
+          return movie;
+        })
+      ),
+    fetch(
+      "https://api.themoviedb.org/3/discover/tv?include_adult=true&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=80",
+      getOptions
+    )
+      .then((res) => res.json())
+      .then((res) =>
+        res.results.map((item: Movie) => {
+          const movie = Object.assign({}, item);
+          movie.media_type = "tv";
+          return movie;
+        })
+      ),
+    fetch(
+      "https://api.themoviedb.org/3/discover/tv?include_adult=true&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=10751",
+      getOptions
+    )
+      .then((res) => res.json())
+      .then((res) =>
+        res.results.map((item: Movie) => {
+          const movie = Object.assign({}, item);
+          movie.media_type = "tv";
+          return movie;
+        })
+      )
+  ]);
+
+  return {
+    props: {
+      comedies: comedies,
+      dramas: dramas,
+      animation: animation,
+      crime: crime,
+      family: family
+    }
+  };
 };
