@@ -31,7 +31,7 @@ const Header = () => {
       }>
       <Wrapper>
         <div className=" py-6 flex items-center justify-between">
-          <div className="flex items-center min-w-[550px] justify-between">
+          <div className="flex items-center min-w-[400px] justify-between">
             <Link to="" className="max-w-[110px]">
               <img
                 src={nexflixLogo}

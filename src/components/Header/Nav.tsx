@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
-  const navLinks = ["Home", "Series", "Movies", "New and Popular", "Favorite"];
+  const navLinks = ["Home", "Series", "Movies", "Favorite"];
   const [selectedLink, setSelectedLink] = useState(0);
 
   return (
