@@ -54,7 +54,15 @@ export const getMovies = async () => {
     fetch(
       "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
       getOptions
-    ).then((res) => res.json()),
+    )
+      .then((res) => res.json())
+      .then((res) =>
+        res.results.map((item: Movie) => {
+          const movie = Object.assign({}, item);
+          movie.media_type = "movie";
+          return movie;
+        })
+      ),
     fetch(
       "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
       getOptions
@@ -104,9 +112,11 @@ export const getMovies = async () => {
         })
       )
   ]);
+
+  console.log(popularMovies);
   return {
     props: {
-      popularMovies: popularMovies.results,
+      popularMovies: popularMovies,
       trendingMovies: trendingMovies,
       topRatedMovies: topRatedMovies,
       popularComedies: popularComedies,
@@ -220,6 +230,7 @@ export const getSeries = async () => {
         })
       )
   ]);
+  console.log(comedies);
 
   return {
     props: {
@@ -230,4 +241,22 @@ export const getSeries = async () => {
       family: family
     }
   };
+};
+
+export const getMovieVideos = async (movie_id: number) => {
+  const movieVideos = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`,
+    getOptions
+  ).then((response) => response.json());
+  console.log(movieVideos);
+  return movieVideos.results;
+};
+
+export const getTVShowVideos = async (TVShow_id: number) => {
+  const TVShowVideos = await fetch(
+    `https://api.themoviedb.org/3/tv/${TVShow_id}/videos?language=en-US`,
+    getOptions
+  ).then((response) => response.json());
+  console.log(TVShowVideos);
+  return TVShowVideos.results;
 };

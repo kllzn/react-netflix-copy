@@ -19,7 +19,6 @@ const Series: FC<SeriesProps> = () => {
   const [favorite, setFavorite] = useState<Array<number> | null>(null);
   useEffect(() => {
     getSeries().then((res) => setMovies(res.props));
-    console.log(getSeries().then((res) => setMovies(res.props)));
     connectFavorites().then((res) => setFavorite(res));
   }, []);
 

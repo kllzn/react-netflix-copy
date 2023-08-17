@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import Wrapper from "../Wrapper";
 import { Movie } from "../../typings";
 import getBackdropUrl from "../../utils/getBackdropURL";
+import Modal from "../Modal";
 
 interface HeroProps {
   popularMovies?: Movie[];
@@ -9,6 +10,8 @@ interface HeroProps {
 
 const Hero: FC<HeroProps> = ({ popularMovies }) => {
   const [movie, setMovie] = useState<Movie>();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     setMovie(
       popularMovies &&
@@ -16,8 +19,15 @@ const Hero: FC<HeroProps> = ({ popularMovies }) => {
     );
   }, [popularMovies]);
 
+  useEffect(() => {
+    if (document) {
+      document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+    }
+  }, [isModalOpen]);
+
   return (
     <section className="hero h-[820px] relative flex items-end shadow-[inset_0px_-55px_74px_-26px_rgba(0,0,0,0.75);]">
+      {isModalOpen && <Modal movie={movie} closeModal={setIsModalOpen}></Modal>}
       <div className="absolute w-full h-full -z-10 bg-black">
         <img
           src={getBackdropUrl(movie?.backdrop_path)}
@@ -34,7 +44,9 @@ const Hero: FC<HeroProps> = ({ popularMovies }) => {
           </div>
 
           <div className="flex gap-x-4 mt-8">
-            <button className="min-h-[55px] bg-white text-black font-medium text-2xl px-7 rounded flex justify-center items-center gap-x-3">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="min-h-[55px] bg-white text-black font-medium text-2xl px-7 rounded flex justify-center items-center gap-x-3">
               <svg
                 width="32"
                 height="32"

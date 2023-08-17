@@ -7,7 +7,10 @@ interface WrapperProps {
 
 const Wrapper: FC<WrapperProps> = ({ children, className }) => {
   return (
-    <div className={`max-w-[1356px] mx-auto my-0 px-3 ${className}`}>
+    <div
+      className={`max-w-[1356px] mx-auto my-0 px-3 ${
+        className ? className : ""
+      }`}>
       {children}
     </div>
   );
