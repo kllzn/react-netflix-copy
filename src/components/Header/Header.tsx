@@ -5,9 +5,12 @@ import Search from "./Search";
 import Profile from "./Profile";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Burger from "./Burger";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBurgerOpened, setIsBurgerOpened] = useState(true);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -22,6 +25,12 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (document) {
+      document.body.style.overflow = isBurgerOpened ? "hidden" : "auto";
+    }
+  }, [isBurgerOpened]);
   return (
     <header
       className={
@@ -30,8 +39,8 @@ const Header = () => {
           : "bg-main-black"
       }>
       <Wrapper>
-        <div className=" py-6 flex items-center justify-between">
-          <div className="flex items-center min-w-[400px] justify-between">
+        <div className="py-3 md:py-6 flex items-center justify-between">
+          <div className="flex items-center md:min-w-[400px] justify-between">
             <Link to="" className="max-w-[110px]">
               <img
                 src={nexflixLogo}
@@ -39,11 +48,11 @@ const Header = () => {
                 className=" w-full h-full object-contain"
               />
             </Link>
-            <Nav />
+            <Nav opened={isBurgerOpened} />
           </div>
-          <div className="flex items-center gap-x-5 justify-between">
+          <Burger closeBurger={setIsBurgerOpened} opened={isBurgerOpened} />
+          <div className="hidden md:flex md:items-center md:gap-x-5 md:justify-between">
             <Search></Search>
-
             <Profile></Profile>
           </div>
         </div>

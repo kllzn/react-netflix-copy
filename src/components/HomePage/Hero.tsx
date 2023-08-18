@@ -46,7 +46,7 @@ const Hero: FC<HeroProps> = ({ popularMovies }) => {
           <div className="flex gap-x-4 mt-8">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="min-h-[55px] bg-white text-black font-medium text-2xl px-7 rounded flex justify-center items-center gap-x-3">
+              className="min-h-[55px] bg-white text-black font-medium text-sm md:text-2xl px-7 rounded flex justify-center items-center gap-x-3">
               <svg
                 width="32"
                 height="32"
@@ -63,7 +63,7 @@ const Hero: FC<HeroProps> = ({ popularMovies }) => {
               </svg>
               Play
             </button>
-            <button className="min-h-[55px] bg-main-gray px-7 rounded font-medium text-2xl flex justify-center items-center gap-x-3">
+            <button className="min-h-[55px] bg-main-gray px-7 rounded font-medium text-sm md:text-2xl flex justify-center items-center gap-x-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -79,7 +79,7 @@ const Hero: FC<HeroProps> = ({ popularMovies }) => {
             </button>
           </div>
           <div className=" mt-8">
-            <p className=" text-xl">{movie?.overview}</p>
+            <p className=" text-base  md:text-xl">{movie?.overview}</p>
           </div>
         </div>
       </Wrapper>

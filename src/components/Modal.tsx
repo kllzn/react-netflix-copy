@@ -30,7 +30,7 @@ const Modal: FC<ModalProps> = ({ movie, closeModal }) => {
         <button onClick={() => closeModal(false)}>
           <AiOutlineCloseCircle size="1.5em" />
         </button>
-        <div className="w-full flex flex-col justify-center md:justify-stretch items-center h-full">
+        <div className="w-full flex flex-col justify-stretch items-center h-full mt-4">
           <div className="w-full md:w-[640px] xl:w-[80%] h-[80%]">
             <div className="w-auto h-[320px] md:h-[90%] mx-auto my-0">
               {video ? (
@@ -46,11 +46,11 @@ const Modal: FC<ModalProps> = ({ movie, closeModal }) => {
             </div>
             <div className="flex flex-col-reverse gap-y-5  md:gap-y-0 items-center md:flex-row justify-between flex-auto mt-4">
               <Rating rating={movie?.vote_average}></Rating>
-              <h2 className="text-2xl md:text-xl font-bold">
+              <h2 className="text-2xl md:text-xl font-bold text-center">
                 {movie?.title || movie?.name || movie?.original_name}
               </h2>
             </div>
-            <div className="mt-4">
+            <div className="mt-4 text-xs">
               <p>{movie?.overview}</p>
             </div>
           </div>
