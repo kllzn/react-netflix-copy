@@ -1,18 +1,14 @@
-import { FC, useEffect, useState } from "react";
-import Hero from "../components/HomePage/Hero";
+import { useEffect, useState } from "react";
 import { connectFavorites, getMovies } from "../utils/api";
+import Wrapper from "../components/Wrapper";
 import { Movies } from "../typings";
 import Row from "../components/HomePage/Row";
 
-interface HomeProps {}
-
-const Home: FC<HomeProps> = () => {
+const MoviesPage = () => {
   const [movies, setMovies] = useState<Movies | null>(null);
   const [favorite, setFavorite] = useState<Array<number> | null>(null);
   useEffect(() => {
-    getMovies().then((res) => {
-      setMovies(res.props);
-    });
+    getMovies().then((res) => setMovies(res.props));
     connectFavorites().then((res) => setFavorite(res));
   }, []);
   const rows = {
@@ -22,9 +18,8 @@ const Home: FC<HomeProps> = () => {
     "Popular TV Shows": movies?.popularTVShows
   };
   return (
-    <main>
-      <Hero popularMovies={movies?.popularMovies}></Hero>
-      <div className=" -mt-[150px] md:-mt-[205.5px] space-y-8 ">
+    <Wrapper>
+      <div className="space-y-8">
         {Object.entries(rows).map(([title, movie]) => {
           return (
             <Row
@@ -35,8 +30,8 @@ const Home: FC<HomeProps> = () => {
           );
         })}
       </div>
-    </main>
+    </Wrapper>
   );
 };
 
-export default Home;
+export default MoviesPage;

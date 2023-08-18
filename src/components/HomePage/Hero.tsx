@@ -26,7 +26,7 @@ const Hero: FC<HeroProps> = ({ popularMovies }) => {
   }, [isModalOpen]);
 
   return (
-    <section className="hero h-[820px] relative flex items-end shadow-[inset_0px_-55px_74px_-26px_rgba(0,0,0,0.75);]">
+    <section className="hero h-[700px] md:h-[820px] relative flex items-end shadow-[inset_0px_-55px_74px_-26px_rgba(0,0,0,0.75);]">
       {isModalOpen && <Modal movie={movie} closeModal={setIsModalOpen}></Modal>}
       <div className="absolute w-full h-full -z-10 bg-black">
         <img

@@ -22,6 +22,14 @@ export interface Movie {
   vote_count: number;
 }
 
+interface Movies {
+  popularMovies: Movie[];
+  trendingMovies: Movie[];
+  topRatedMovies: Movie[];
+  popularComedies: Movie[];
+  popularTVShows: Movie[];
+}
+
 export interface Video {
   iso_639_1: string;
   iso_3166_1: string;

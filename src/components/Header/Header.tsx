@@ -9,7 +9,7 @@ import Burger from "./Burger";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isBurgerOpened, setIsBurgerOpened] = useState(true);
+  const [isBurgerOpened, setIsBurgerOpened] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
