@@ -37,10 +37,7 @@ export const postMovie = ({
   fetch(
     `https://api.themoviedb.org/3/account/20249226/${listName}`,
     postOptions
-  )
-    .then((response) => response.json())
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+  ).then((response) => response.json());
 };
 
 export const getMovies = async () => {
@@ -113,7 +110,6 @@ export const getMovies = async () => {
       )
   ]);
 
-  console.log(popularMovies);
   return {
     props: {
       popularMovies: popularMovies,
@@ -230,7 +226,6 @@ export const getSeries = async () => {
         })
       )
   ]);
-  console.log(comedies);
 
   return {
     props: {
@@ -243,12 +238,13 @@ export const getSeries = async () => {
   };
 };
 
+//Movies
+
 export const getMovieVideos = async (movie_id: number) => {
   const movieVideos = await fetch(
     `https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`,
     getOptions
   ).then((response) => response.json());
-  console.log(movieVideos);
   return movieVideos.results;
 };
 
@@ -257,6 +253,16 @@ export const getTVShowVideos = async (TVShow_id: number) => {
     `https://api.themoviedb.org/3/tv/${TVShow_id}/videos?language=en-US`,
     getOptions
   ).then((response) => response.json());
-  console.log(TVShowVideos);
   return TVShowVideos.results;
+};
+
+export const getBySearch = async (searchRequest: string) => {
+  const searchRes = await fetch(
+    `https://api.themoviedb.org/3/search/multi?query=${searchRequest}&include_adult=true&language=en-US&page=1`,
+    getOptions
+  ).then((response) => response.json());
+  const filteredSearchRes = await searchRes.results.filter(
+    (item: Movie) => item.media_type !== "person"
+  );
+  return filteredSearchRes;
 };

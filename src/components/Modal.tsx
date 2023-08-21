@@ -50,7 +50,7 @@ const Modal: FC<ModalProps> = ({ movie, closeModal }) => {
                 {movie?.title || movie?.name || movie?.original_name}
               </h2>
             </div>
-            <div className="mt-4 text-xs">
+            <div className="mt-4 text-xs lg:text-base">
               <p>{movie?.overview}</p>
             </div>
           </div>

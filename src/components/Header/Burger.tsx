@@ -10,13 +10,13 @@ interface BurgerProps {
 const Burger: FC<BurgerProps> = ({ closeBurger, opened }) => {
   return (
     <div
-      className="md:hidden"
+      className="md:hidden flex items-center p-1"
       onClick={() => closeBurger(opened ? false : true)}>
       <button
         className={
           opened
-            ? "absolute top-6 right-6 z-50"
-            : "flex items-center text-main-gray p-3"
+            ? "absolute top-4 right-4 z-50"
+            : "flex items-center text-main-gray"
         }>
         {opened ? (
           <AiOutlineCloseCircle size="1.5em" />

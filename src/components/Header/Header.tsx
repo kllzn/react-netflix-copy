@@ -1,8 +1,7 @@
 import Wrapper from "../Wrapper";
 import nexflixLogo from "../../assets/NetflixLogoSvg.svg";
 import Nav from "./Nav";
-import Search from "./Search";
-import Profile from "./Profile";
+import Search from "./Search/Search";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Burger from "./Burger";
@@ -50,10 +49,9 @@ const Header = () => {
             </Link>
             <Nav opened={isBurgerOpened} />
           </div>
-          <Burger closeBurger={setIsBurgerOpened} opened={isBurgerOpened} />
-          <div className="hidden md:flex md:items-center md:gap-x-5 md:justify-between">
+          <div className="flex gap-x-2">
             <Search></Search>
-            <Profile></Profile>
+            <Burger closeBurger={setIsBurgerOpened} opened={isBurgerOpened} />
           </div>
         </div>
       </Wrapper>
