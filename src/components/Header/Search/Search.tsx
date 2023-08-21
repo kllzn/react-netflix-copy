@@ -3,7 +3,6 @@ import { HiSearch } from "react-icons/hi";
 import { getBySearch } from "../../../utils/api";
 import FoundFilmsBlock from "./FoundFilmsBlock";
 import { Movie } from "../../../typings";
-import useFocus from "../../../hooks/useFocus";
 
 interface SearchProps {}
 
@@ -28,6 +27,8 @@ const Search: FC<SearchProps> = () => {
         onBlur={(e) => {
           if (e.target.value.length >= 3) {
             e.target.focus();
+          } else {
+            setInputValue("");
           }
         }}>
         <input
