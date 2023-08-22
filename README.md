@@ -2,7 +2,7 @@ Netflix Clone using React, Typescript, TailwindCSS, React Router v6, tmdbAPI.
 
 // TODO: make authentication (Right now i'm using my API key for fetching data)
 
-Here is some screenshots:
+Here are some screenshots:
 
 **Home Page**
 ![Screen1](https://github.com/kllzn/react-netflix-copy/assets/90403907/0d6c7df9-ff31-4fe1-a3c8-4832681ad27a)
