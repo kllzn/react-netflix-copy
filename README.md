@@ -1,27 +1,16 @@
-# React + TypeScript + Vite
+Netflix Clone using React, Typescript, TailwindCSS, React Router v6, tmdbAPI.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+// TODO: make authentication (Right now i'm using my API key for fetching data)
 
-Currently, two official plugins are available:
+Here is some screenshots: 
+**Home Page**
+![Screen1](https://github.com/kllzn/react-netflix-copy/assets/90403907/0d6c7df9-ff31-4fe1-a3c8-4832681ad27a)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Favorites Page**
+![Screen2](https://github.com/kllzn/react-netflix-copy/assets/90403907/98dc9655-790c-4cf9-9916-19569a74923e)
 
-## Expanding the ESLint configuration
+**Search component opened**
+![Screen3](https://github.com/kllzn/react-netflix-copy/assets/90403907/1d11654d-ecd4-4883-a9d6-617cc22d9848)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+**Modal**
+![Screen4](https://github.com/kllzn/react-netflix-copy/assets/90403907/4e1bff16-32b7-4b9f-afa4-148efaba78bc)
